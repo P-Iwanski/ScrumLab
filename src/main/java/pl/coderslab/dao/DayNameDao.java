@@ -1,6 +1,7 @@
 package pl.coderslab.dao;
 
 import pl.coderslab.model.DayName;
+import pl.coderslab.utils.DbUtil;
 
 import java.awt.print.Book;
 import java.sql.Connection;
