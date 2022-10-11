@@ -23,14 +23,24 @@ public class Recipe {
     private String preparation;
 
     public String toString() {
-        return "Recipe [id=" + id + ", name=" + name + ", description=" + description + ", created=" + created
-                + ", updated" + updated + ", adminId" + adminId +", preparationTime" + preparationTime + ", preparation" + preparation + "]";
+        return "Recipe [id=" + this.id + ", name=" + this.name + ", description=" + this.description + ", created=" + this.created
+                + ", updated=" + this.updated + ", adminId=" + this.adminId +", preparationTime=" + this.preparationTime + ", preparation=" + this.preparation + "]";
     }
 
 
     public Recipe() {
     }
 
+    public Recipe(int id, String name, String ingredients, String description, String created, String updated, int preparationTime, String preparation) {
+        this.id = id;
+        this.name = name;
+        this.ingredients = ingredients;
+        this.description = description;
+        this.created = created;
+        this.updated = updated;
+        this.preparationTime = preparationTime;
+        this.preparation = preparation;
+    }
 
     public Recipe(String name, String ingredients, String description, String created, String updated, int preparationTime, String preparation) {
         this.name = name;

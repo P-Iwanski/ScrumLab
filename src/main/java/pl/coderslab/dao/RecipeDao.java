@@ -12,11 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RecipeDao {
-    private static final String CREATE_RECIPE_QUERY = "INSERT INTO recipe(name, ingredients, description, created, updated, preparationTime, preparation) " +
+    private static final String CREATE_RECIPE_QUERY = "INSERT INTO recipe(name, ingredients, description, created, updated, preparation_time, preparation) " +
             "VALUES (?,?,?,?,?,?,?);";
     private static final String READ_RECIPE_QUERY = "SELECT * from recipe where id = ?;";
     private static final String UPDATE_RECIPE_QUERY = "UPDATE recipe SET name = ? , ingredients = ?, description = ?, updated = ?," +
-            " preparationTime = ?, preparation = ?, WHERE	id = ?;";
+            " preparation_time = ?, preparation = ?, WHERE	id = ?;";
     private static final String DELETE_RECIPE_QUERY = "DELETE FROM recipe where id = ?;";
     private static final String FIND_ALL_RECIPES_QUERY = "SELECT * FROM recipe;";
 
@@ -24,8 +24,8 @@ public class RecipeDao {
         try (Connection connection = DbUtil.getConnection();
              PreparedStatement statement = connection.prepareStatement(CREATE_RECIPE_QUERY, PreparedStatement.RETURN_GENERATED_KEYS)) {
             statement.setString(1, recipe.getName());
-            statement.setString(1, recipe.getIngredients());
-            statement.setString(2, recipe.getDescription());
+            statement.setString(2, recipe.getIngredients());
+            statement.setString(3, recipe.getDescription());
             statement.setString(4, recipe.getCreated());
             statement.setString(5, recipe.getUpdated());
             statement.setInt(6, recipe.getPreparationTime());
@@ -66,8 +66,8 @@ public class RecipeDao {
                     recipe.setDescription(resultSet.getString("description"));
                     recipe.setCreated(resultSet.getString("created"));
                     recipe.setUpdated(resultSet.getString("updated"));
-                    recipe.setAdminId(resultSet.getInt("AdminId"));
-                    recipe.setPreparationTime(resultSet.getInt("preparationTime"));
+                    recipe.setAdminId(resultSet.getInt("admin_id"));
+                    recipe.setPreparationTime(resultSet.getInt("preparation_time"));
                     recipe.setPreparation(resultSet.getString("preparation"));
                 }
             }
@@ -124,8 +124,8 @@ public class RecipeDao {
                 recipeToAdd.setDescription(resultSet.getString("description"));
                 recipeToAdd.setCreated(resultSet.getString("created"));
                 recipeToAdd.setUpdated(resultSet.getString("updated"));
-                recipeToAdd.setAdminId(resultSet.getInt("AdminId"));
-                recipeToAdd.setPreparationTime(resultSet.getInt("preparationTime"));
+                recipeToAdd.setAdminId(resultSet.getInt("admin_id"));
+                recipeToAdd.setPreparationTime(resultSet.getInt("preparation_time"));
                 recipeToAdd.setPreparation(resultSet.getString("preparation"));
 
                 planList.add(recipeToAdd);
