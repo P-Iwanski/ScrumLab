@@ -43,7 +43,7 @@ public class PlanDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+        return plan;
     }
 
     public Plan read(Integer planId) {
