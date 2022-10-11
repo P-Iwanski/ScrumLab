@@ -33,7 +33,7 @@ public class Login extends HttpServlet {
         String password = request.getParameter("password");
 
         if (AdminDAO.checkLogin(email, password) == true) {
-            getServletContext().getRequestDispatcher("/").forward(request, response);
+            response.sendRedirect("/");
         } else {
 //            Cookie cookie = new Cookie("Wrong", "zlehaslo");
 //            cookie.setMaxAge(60 * 60 * 24);
