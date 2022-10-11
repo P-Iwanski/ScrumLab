@@ -8,23 +8,23 @@ public class Recipe {
     private String description;
     private String created;
     private String updated;
-
-    private int adminId;
+    private int preparation_time;
+    private String preparation;
+    private int admin_id;
 
     public int getAdminId() {
-        return adminId;
+        return admin_id;
     }
 
     public void setAdminId(int adminId) {
-        this.adminId = adminId;
+        this.admin_id = adminId;
     }
 
-    private int preparationTime;
-    private String preparation;
+
 
     public String toString() {
         return "Recipe [id=" + this.id + ", name=" + this.name + ", description=" + this.description + ", created=" + this.created
-                + ", updated=" + this.updated + ", adminId=" + this.adminId +", preparationTime=" + this.preparationTime + ", preparation=" + this.preparation + "]";
+                + ", updated=" + this.updated + ", preparationTime=" + this.preparation_time + ", preparation=" + this.preparation + ", adminId=" + this.admin_id + "]";
     }
 
 
@@ -38,7 +38,7 @@ public class Recipe {
         this.description = description;
         this.created = created;
         this.updated = updated;
-        this.preparationTime = preparationTime;
+        this.preparation_time = preparationTime;
         this.preparation = preparation;
     }
 
@@ -48,7 +48,7 @@ public class Recipe {
         this.description = description;
         this.created = created;
         this.updated = updated;
-        this.preparationTime = preparationTime;
+        this.preparation_time = preparationTime;
         this.preparation = preparation;
     }
 
@@ -100,12 +100,12 @@ public class Recipe {
         this.updated = updated;
     }
 
-    public int getPreparationTime() {
-        return preparationTime;
+    public int getPreparation_time() {
+        return preparation_time;
     }
 
-    public void setPreparationTime(int preparationTime) {
-        this.preparationTime = preparationTime;
+    public void setPreparation_time(int preparation_time) {
+        this.preparation_time = preparation_time;
     }
 
     public String getPreparation() {
