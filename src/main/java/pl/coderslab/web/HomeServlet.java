@@ -1,6 +1,7 @@
 package pl.coderslab.web;
 
 import pl.coderslab.dao.BookDao;
+import pl.coderslab.dao.RecipeDao;
 import pl.coderslab.dao.PlanDao;
 import pl.coderslab.model.Book;
 
@@ -19,8 +20,7 @@ import java.util.List;
 public class HomeServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
+        response.getWriter().append("" + RecipeDao.numberOfRecipe(1));
         getServletContext().getRequestDispatcher("/home.jsp").forward(request, response);
     }
 }
