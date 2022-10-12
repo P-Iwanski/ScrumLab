@@ -61,7 +61,7 @@ public class RecipeDao {
                 while (resultSet.next()) {
                     recipe.setId(resultSet.getInt("id"));
                     recipe.setName(resultSet.getString("name"));
-                    recipe.setName(resultSet.getString("ingredients"));
+                    recipe.setIngredients(resultSet.getString("ingredients"));
                     recipe.setDescription(resultSet.getString("description"));
                     recipe.setCreated(resultSet.getString("created"));
                     recipe.setUpdated(resultSet.getString("updated"));

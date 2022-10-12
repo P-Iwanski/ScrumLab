@@ -3,6 +3,7 @@ package pl.coderslab.dao;
 import pl.coderslab.exception.NotFoundException;
 import pl.coderslab.model.Plan;
 import pl.coderslab.utils.DbUtil;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
