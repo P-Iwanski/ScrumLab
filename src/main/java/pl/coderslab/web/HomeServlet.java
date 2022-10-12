@@ -1,6 +1,7 @@
 package pl.coderslab.web;
 
 import pl.coderslab.dao.BookDao;
+import pl.coderslab.dao.RecipeDao;
 import pl.coderslab.model.Book;
 
 import javax.servlet.ServletException;
@@ -18,9 +19,10 @@ import java.util.List;
 public class HomeServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        BookDao bookDao = new BookDao();
-        List<Book> books = bookDao.findAll();
-        System.out.println(books);
+        //BookDao bookDao = new BookDao();
+        //List<Book> books = bookDao.findAll();
+        //System.out.println(books);
+        response.getWriter().append("" + RecipeDao.numberOfRecipe(1));
 
         getServletContext().getRequestDispatcher("/home.jsp").forward(request, response);
     }
