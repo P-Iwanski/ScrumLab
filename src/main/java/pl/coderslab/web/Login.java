@@ -9,6 +9,7 @@ import java.io.IOException;
 
 @WebServlet(name = "Login", value = "/login")
 public class Login extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //        response.setContentType("text/html;charset=utf-8");
@@ -33,6 +34,7 @@ public class Login extends HttpServlet {
         String password = request.getParameter("password");
 
         if (AdminDAO.checkLogin(email, password) == true) {
+           request.getSession().setAttribute("email", "logged");
             response.sendRedirect("/");
         } else {
 //            Cookie cookie = new Cookie("Wrong", "zlehaslo");
