@@ -2,7 +2,6 @@ package pl.coderslab.dao;
 
 import pl.coderslab.exception.NotFoundException;
 import pl.coderslab.model.Plan;
-import pl.coderslab.model.RecipePlanDays;
 import pl.coderslab.utils.DbUtil;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,23 +18,13 @@ public class PlanDao {
     private static final String DELETE_PLAN_QUERY = "DELETE FROM plan WHERE id = ?;";
     private static final String FIND_ALL_PLANS_QUERY = "SELECT * FROM plan;";
 
-    private static final String FIND_LAST_ADDED_PLAN_QUERY ="""
-    SELECT day_name.name as day_name, meal_name,  recipe.name as recipe_name
-    FROM recipe_plan
-    JOIN day_name on day_name.id=day_name_id
-    JOIN recipe on recipe.id=recipe_id 
-    WHERE
-    recipe_plan.plan_id =  (SELECT MAX(id) from plan WHERE admin_id = ?)
-    ORDER by day_name.display_order, recipe_plan.display_order;
-    """;
-
     public Plan create(Plan plan) {
         try (Connection connection = DbUtil.getConnection();
              PreparedStatement statement = connection.prepareStatement(CREATE_PLAN_QUERY, PreparedStatement.RETURN_GENERATED_KEYS)) {
             statement.setString(1, plan.getName());
             statement.setString(2, plan.getDescription());
             statement.setString(3, plan.getCreated());
-            statement.setInt(4, plan.getAdminId());
+            statement.setInt(4, plan.getAdmin_id());
             int result = statement.executeUpdate();
 
             if (result != 1) {
@@ -69,7 +58,7 @@ public class PlanDao {
                     plan.setName(resultSet.getString("name"));
                     plan.setDescription(resultSet.getString("description"));
                     plan.setCreated(resultSet.getString("created"));
-                    plan.setAdminId(resultSet.getInt("admin_id"));
+                    plan.setAdmin_id(resultSet.getInt("admin_id"));
                 }
             }
         } catch (Exception e) {
@@ -86,7 +75,7 @@ public class PlanDao {
             statement.setString(1, plan.getName());
             statement.setString(2, plan.getDescription());
             statement.setString(3, plan.getCreated());
-            statement.setInt(4, plan.getAdminId());
+            statement.setInt(4, plan.getAdmin_id());
 
             statement.executeUpdate();
         } catch (Exception e) {
@@ -122,7 +111,7 @@ public class PlanDao {
                 planToAdd.setName(resultSet.getString("name"));
                 planToAdd.setDescription(resultSet.getString("description"));
                 planToAdd.setCreated(resultSet.getString("created"));
-                planToAdd.setAdminId(resultSet.getInt("admin_id"));
+                planToAdd.setAdmin_id(resultSet.getInt("admin_id"));
                 planList.add(planToAdd);
             }
 
@@ -130,29 +119,5 @@ public class PlanDao {
             e.printStackTrace();
         }
         return planList;
-    }
-
-    public static List<RecipePlanDays> lastAddedPlan(int adminId) {
-        List<RecipePlanDays> rpdArray = new ArrayList<RecipePlanDays>();
-        try (Connection connection = DbUtil.getConnection();
-             PreparedStatement statement = connection.prepareStatement(FIND_LAST_ADDED_PLAN_QUERY)
-        ) {
-            statement.setInt(1, adminId);
-            try (ResultSet resultSet = statement.executeQuery()) {
-                while (resultSet.next()) {
-                    RecipePlanDays rpd = new RecipePlanDays();
-                    rpd.setMealName(resultSet.getString("meal_name"));
-                    rpd.setDayName(resultSet.getString("day_name"));
-                    rpd.setRecipeName(resultSet.getString("recipe_name"));
-                    //rpd.setPlanName(resultSet.getString("plan_name"));
-                    rpdArray.add(rpd);
-
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return rpdArray;
-
     }
 }

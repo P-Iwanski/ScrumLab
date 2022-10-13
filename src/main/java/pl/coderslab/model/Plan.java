@@ -6,11 +6,11 @@ public class Plan {
     private String name;
     private String description;
     private String created;
-    private int adminId;
+    private int admin_id;
 
     @Override
     public String toString() {
-        return "Plan [id=" + id + ", name=" + name + ", description=" + description + ", created=" + created + ", adminId=" + adminId + "]";
+        return "Plan [id=" + id + ", name=" + name + ", description=" + description + ", created=" + created + ", adminId=" + admin_id + "]";
     }
 
     public Plan() {
@@ -20,7 +20,7 @@ public class Plan {
         this.name = name;
         this.description = description;
         this.created = created;
-        this.adminId = adminId;
+        this.admin_id = adminId;
     }
 
     public Plan(int id, String name, String description, String created, int adminId) {
@@ -28,7 +28,7 @@ public class Plan {
         this.name = name;
         this.description = description;
         this.created = created;
-        this.adminId = adminId;
+        this.admin_id = adminId;
     }
 
     public int getId() {
@@ -63,11 +63,11 @@ public class Plan {
         this.created = created;
     }
 
-    public int getAdminId() {
-        return adminId;
+    public int getAdmin_id() {
+        return admin_id;
     }
 
-    public void setAdminId(int adminId) {
-        this.adminId = adminId;
+    public void setAdmin_id(int adminId) {
+        this.admin_id = adminId;
     }
 }

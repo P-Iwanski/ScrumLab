@@ -5,13 +5,9 @@ import pl.coderslab.exception.NotFoundException;
 import pl.coderslab.model.Admin;
 import pl.coderslab.utils.DbUtil;
 
-import java.io.UnsupportedEncodingException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.mindrot.jbcrypt.BCrypt.gensalt;
-import static org.mindrot.jbcrypt.BCrypt.hashpw;
 
 public class AdminDAO {
 
@@ -20,11 +16,6 @@ public class AdminDAO {
     private static final String FIND_ALL_ADMINS_QUERY = "SELECT * FROM admins;";
     private static final String READ_ADMIN_QUERY = "SELECT * from admins where id = ?;";
     private static final String UPDATE_ADMIN_QUERY = "UPDATE admins SET first_name = ? , last_name = ?, email = ?, password = ?, superadmin = ?, enable = ? WHERE	id = ?;";
-    private static final String CHECK_EMAIL = "SELECT password FROM admins where email = ?;";
-
-    //private static final String SALT = BCrypt.gensalt(6);
-    private static final String SALT = "$2a$06$bjyVhqrhzzg592VySdTcuu";
-
 
     /**
      * Get admin by id
@@ -56,7 +47,6 @@ public class AdminDAO {
         return admin;
 
     }
-
     /**
      * Return all admins
      *
@@ -165,31 +155,8 @@ public class AdminDAO {
             e.printStackTrace();
         }
     }
-
     public static String hashPassword(String password) {
-        return hashpw(password, SALT);
+        return BCrypt.hashpw(password, BCrypt.gensalt());
+
     }
-
-    public static boolean checkLogin(String email, String password) {
-
-        try (Connection connection = DbUtil.getConnection();
-             PreparedStatement statement = connection.prepareStatement(CHECK_EMAIL)
-        ) {
-            statement.setString(1, email);
-            try (ResultSet resultSet = statement.executeQuery()) {
-                if (!resultSet.next()) {
-                    return false;
-                }
-                if (!resultSet.getString("password").equals(hashPassword(password)) ) {
-                    System.out.println(hashPassword(password));
-                    System.out.println(resultSet.getString("password"));
-                    return false;
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-            return true;
-    }
-
 }
