@@ -4,6 +4,7 @@
 <html lang="en">
 
 <head>
+    <link rel="shortcut icon" href="#">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Login</title>
@@ -53,13 +54,13 @@
                         <div class="form-group">
                             <input type="text" class="form-control" id="password" name="password" placeholder="podaj hasło">
                         </div>
-                        <c:if test="${!cookie.badLogin.value.equals('1')}">
-                            <div>
-                                Nieprawidłowe dane logowania.
-                            </div>
-                        </c:if>
                         <button class="btn btn-color rounded-0" type="submit">Zaloguj</button>
                     </form>
+                    <c:if test="${badLogin != null && badLogin.equals('bad')}">
+                        <div>
+                            Nieprawidłowe dane logowania.
+                        </div>
+                    </c:if>
                  </div>
             </div>
         </div>

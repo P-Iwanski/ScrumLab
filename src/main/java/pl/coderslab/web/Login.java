@@ -14,12 +14,11 @@ public class Login extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
         request.setCharacterEncoding("utf-8");
-        getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
-        String badLogin = request.getParameter("login");
-        if ("false".equals(badLogin)) {
-            Cookie cookie = new Cookie("badLogin", "1");
-            response.addCookie(cookie);
+        String badLogin = request.getParameter("log");
+        if (badLogin != null && "bad".equals(badLogin)) {
+        request.getSession().setAttribute("badLogin", "bad");
         }
+        getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
     }
 
     @Override
@@ -34,7 +33,7 @@ public class Login extends HttpServlet {
             request.getSession().setAttribute("email", "logged");
             response.sendRedirect("/");
         } else {
-            response.sendRedirect("/login?login=false");
+            response.sendRedirect("/login?log=bad");
         }
     }
 }
