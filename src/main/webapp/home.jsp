@@ -18,7 +18,7 @@
 <body>
 <header class="page-header">
     <nav class="navbar navbar-expand-lg justify-content-around">
-        <a href="/home" class="navbar-brand main-logo">
+        <a href="/" class="navbar-brand main-logo">
             Zaplanuj <span>Jedzonko</span>
         </a>
         <ul class="nav nounderline text-uppercase">
