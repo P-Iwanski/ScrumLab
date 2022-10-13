@@ -17,6 +17,7 @@ public class RecipeDao {
     private static final String UPDATE_RECIPE_QUERY = "UPDATE recipe SET name = ? , ingredients = ?, description = ?, created = ?, updated = ?, preparation_time = ?, preparation = ?, admin_id = ? WHERE id = ?;";
     private static final String DELETE_RECIPE_QUERY = "DELETE FROM recipe WHERE id = ?;";
     private static final String FIND_ALL_RECIPES_QUERY = "SELECT * FROM recipe;";
+    private static final String SELECT_NUMBERS_OF_RECIPE = "SELECT COUNT(*) FROM recipe WHERE admin_id = ?;";
 
     public Recipe create(Recipe recipe) {
         try (Connection connection = DbUtil.getConnection();
@@ -61,7 +62,7 @@ public class RecipeDao {
                 while (resultSet.next()) {
                     recipe.setId(resultSet.getInt("id"));
                     recipe.setName(resultSet.getString("name"));
-                    recipe.setName(resultSet.getString("ingredients"));
+                    recipe.setIngredients(resultSet.getString("ingredients"));
                     recipe.setDescription(resultSet.getString("description"));
                     recipe.setCreated(resultSet.getString("created"));
                     recipe.setUpdated(resultSet.getString("updated"));
@@ -138,5 +139,23 @@ public class RecipeDao {
             e.printStackTrace();
         }
         return planList;
+    }
+
+    public static int numberOfRecipe(Integer adminId) {
+        int count = 0;
+        try (Connection connection = DbUtil.getConnection();
+             PreparedStatement statement = connection.prepareStatement(SELECT_NUMBERS_OF_RECIPE)
+        ) {
+            statement.setInt(1, adminId);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    count = resultSet.getInt("count(*)");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return count;
+
     }
 }
