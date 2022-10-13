@@ -16,7 +16,7 @@ public class Login extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         String badLogin = request.getParameter("log");
         if (badLogin != null && "bad".equals(badLogin)) {
-        request.getSession().setAttribute("badLogin", "bad");
+        request.setAttribute("badLogin", "bad");
         }
         getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
     }
