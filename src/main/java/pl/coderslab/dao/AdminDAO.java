@@ -21,8 +21,6 @@ public class AdminDAO {
     private static final String READ_ADMIN_QUERY = "SELECT * from admins where id = ?;";
     private static final String UPDATE_ADMIN_QUERY = "UPDATE admins SET first_name = ? , last_name = ?, email = ?, password = ?, superadmin = ?, enable = ? WHERE	id = ?;";
     private static final String CHECK_EMAIL = "SELECT password FROM admins where email = ?;";
-
-    //private static final String SALT = BCrypt.gensalt(6);
     private static final String SALT = "$2a$06$bjyVhqrhzzg592VySdTcuu";
 
 

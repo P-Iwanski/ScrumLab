@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Do not change servlet address !!!
  */
-@WebServlet("/home")
+@WebServlet("")
 public class HomeServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
