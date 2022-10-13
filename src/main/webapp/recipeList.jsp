@@ -34,7 +34,7 @@
             <th scope="row" class="col-1">${recipe.id}</th>
             <td class="col-5">${recipe.name}</td>
             <td class="col-5">${recipe.description}</td>
-            <td class="col-1"><a href='<c:url value="/app/recipe/details?id=${recipe.id}"/>' class="btn btn-info rounded-0 text-light">Szczegóły</a></td>
+            <td class="col-1"><a href='<c:url value="/recipe/details?id=${recipe.id}"/>' class="btn btn-info rounded-0 text-light">Szczegóły</a></td>
         </tr>
         </c:forEach>
         </tbody>

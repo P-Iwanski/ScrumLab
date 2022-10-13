@@ -7,13 +7,13 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet("/recipe/list")
-public class RecipeList extends HttpServlet {
+@WebServlet("/app/recipe/list")
+public class AppRecipeList extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RecipeDao recipeDao = new RecipeDao();
         request.setAttribute("recipes", recipeDao.findAll());
-        getServletContext().getRequestDispatcher("/recipeList.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/appRecipeList.jsp").forward(request, response);
     }
 
     @Override
