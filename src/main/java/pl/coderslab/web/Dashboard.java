@@ -21,16 +21,12 @@ public class Dashboard extends HttpServlet {
         String email = (String) request.getSession().getAttribute("email");
         int id = AdminDAO.checkId(email);
         List<RecipePlanDays> arrayOfLastPlan = PlanDao.lastAddedPlan(id);
-        System.out.println(arrayOfLastPlan);
         String name = AdminDAO.getName(email);
         int numberOfPlans = PlanDao.numberOfPlans(id);
         int numberOfRecipes = RecipeDao.numberOfRecipe(id);
         String nameOfLastPlan = PlanDao.nameLastAddedPlan(id);
 
-
-
         request.setAttribute("arrayOfLastPlan", arrayOfLastPlan);
-        System.out.println(arrayOfLastPlan);
         request.setAttribute("name", name);
         request.setAttribute("numberOfPlans", numberOfPlans);
         request.setAttribute("numberOfRecipes", numberOfRecipes);
