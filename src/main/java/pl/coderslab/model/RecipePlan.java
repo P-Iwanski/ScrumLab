@@ -8,6 +8,8 @@ public class RecipePlan {
     private int displayOrder;
     private int dayNameId;
     private int planId;
+    private String dayName;
+    private String recipeName;
 
     public RecipePlan() {
     }
@@ -27,6 +29,22 @@ public class RecipePlan {
         this.displayOrder = displayOrder;
         this.dayNameId = dayNameId;
         this.planId = planId;
+    }
+
+    public String getDayName() {
+        return dayName;
+    }
+
+    public void setDayName(String dayName) {
+        this.dayName = dayName;
+    }
+
+    public String getRecipeName() {
+        return recipeName;
+    }
+
+    public void setRecipeName(String recipeName) {
+        this.recipeName = recipeName;
     }
 
     public int getId() {

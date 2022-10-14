@@ -3,7 +3,6 @@ package pl.coderslab.web;
 import pl.coderslab.dao.PlanDao;
 import pl.coderslab.dao.RecipePlanDao;
 import pl.coderslab.model.Plan;
-import pl.coderslab.model.RecipePlan;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -20,7 +19,7 @@ public class AppPlanDetails extends HttpServlet {
         request.setAttribute("plan", read);
 
         RecipePlanDao recipePlanDao = new RecipePlanDao();
-        request.setAttribute("recipePlan", recipePlanDao.findAll(Integer.parseInt(id)));
+        request.setAttribute("recipePlan", recipePlanDao.findById(Integer.parseInt(id)));
         getServletContext().getRequestDispatcher("/appPlanDetails.jsp").forward(request, response);
     }
 
