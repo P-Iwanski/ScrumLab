@@ -116,7 +116,7 @@
                                 <td class="col-2">${item.mealName}</td>
                                 <td class="col-8">${item.recipeName}</td>
                                 <td class="col-2">
-                                    <a href='<c:url value="/recipe/details?id=${item.recipeId}"/>' class="btn btn-primary rounded-0">Szczegóły</a>
+                                    <a href='<c:url value="/app/recipe/details?id=${item.recipeId}"/>' class="btn btn-primary rounded-0">Szczegóły</a>
                                 </td>
                             </tr>
                             </tbody>
@@ -140,7 +140,7 @@
                                 <td class="col-2">${item.mealName}</td>
                                 <td class="col-8">${item.recipeName}</td>
                                 <td class="col-2">
-                                    <a href='<c:url value="/recipe/details?id=${item.recipeId}"/>' class="btn btn-primary rounded-0">Szczegóły</a>
+                                    <a href='<c:url value="/app/recipe/details?id=${item.recipeId}"/>' class="btn btn-primary rounded-0">Szczegóły</a>
                                 </td>
                             </tr>
                             </tbody>
@@ -162,7 +162,7 @@
                                 <td class="col-2">${item.mealName}</td>
                                 <td class="col-8">${item.recipeName}</td>
                                 <td class="col-2">
-                                    <button type="button" class="btn btn-primary rounded-0">Szczegóły</button>
+                                    <a href='<c:url value="/app/recipe/details?id=${item.recipeId}"/>' class="btn btn-primary rounded-0">Szczegóły</a>
                                 </td>
                             </tr>
                             </tbody>
@@ -185,7 +185,7 @@
                                 <td class="col-2">${item.mealName}</td>
                                 <td class="col-8">${item.recipeName}</td>
                                 <td class="col-2">
-                                    <button type="button" class="btn btn-primary rounded-0">Szczegóły</button>
+                                    <a href='<c:url value="/app/recipe/details?id=${item.recipeId}"/>' class="btn btn-primary rounded-0">Szczegóły</a>
                                 </td>
                             </tr>
                             </tbody>
@@ -207,7 +207,7 @@
                                 <td class="col-2">${item.mealName}</td>
                                 <td class="col-8">${item.recipeName}</td>
                                 <td class="col-2">
-                                    <button type="button" class="btn btn-primary rounded-0">Szczegóły</button>
+                                    <a href='<c:url value="/app/recipe/details?id=${item.recipeId}"/>' class="btn btn-primary rounded-0">Szczegóły</a>
                                 </td>
                             </tr>
                             </tbody>
@@ -229,7 +229,7 @@
                                 <td class="col-2">${item.mealName}</td>
                                 <td class="col-8">${item.recipeName}</td>
                                 <td class="col-2">
-                                    <button type="button" class="btn btn-primary rounded-0">Szczegóły</button>
+                                    <a href='<c:url value="/app/recipe/details?id=${item.recipeId}"/>' class="btn btn-primary rounded-0">Szczegóły</a>
                                 </td>
                             </tr>
                             </tbody>
@@ -251,7 +251,7 @@
                                 <td class="col-2">${item.mealName}</td>
                                 <td class="col-8">${item.recipeName}</td>
                                 <td class="col-2">
-                                    <button type="button" class="btn btn-primary rounded-0">Szczegóły</button>
+                                    <a href='<c:url value="/app/recipe/details?id=${item.recipeId}"/>' class="btn btn-primary rounded-0">Szczegóły</a>
                                 </td>
                             </tr>
                             </tbody>
