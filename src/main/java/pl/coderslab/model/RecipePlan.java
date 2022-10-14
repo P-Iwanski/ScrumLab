@@ -8,12 +8,11 @@ public class RecipePlan {
     private int displayOrder;
     private int dayNameId;
     private int planId;
+    private int recipePlanId;
     private String dayName;
     private String recipeName;
-
     public RecipePlan() {
     }
-
     public RecipePlan(int id, int recipeId, String mealName, int displayOrder, int dayNameId, int planId) {
         this.id = id;
         this.recipeId = recipeId;
@@ -29,6 +28,14 @@ public class RecipePlan {
         this.displayOrder = displayOrder;
         this.dayNameId = dayNameId;
         this.planId = planId;
+    }
+
+    public int getRecipePlanId() {
+        return recipePlanId;
+    }
+
+    public void setRecipePlanId(int recipePlanId) {
+        this.recipePlanId = recipePlanId;
     }
 
     public String getDayName() {
