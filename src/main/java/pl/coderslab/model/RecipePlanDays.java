@@ -5,11 +5,19 @@ public class RecipePlanDays {
     private String dayName;
     private String mealName;
     private String recipeName;
+    private int recipeId;
+
+    public int getRecipeId() {
+        return recipeId;
+    }
+
+    public void setRecipeId(int recipeId) {
+        this.recipeId = recipeId;
+    }
 
     public String getDayName() {
         return dayName;
     }
-
     public void setDayName(String dayName) {
         this.dayName = dayName;
     }
@@ -28,5 +36,8 @@ public class RecipePlanDays {
 
     public void setRecipeName(String recipeName) {
         this.recipeName = recipeName;
+    }
+    public String toString() {
+        return this.dayName + " " + this.mealName + " "+ this.recipeName;
     }
 }

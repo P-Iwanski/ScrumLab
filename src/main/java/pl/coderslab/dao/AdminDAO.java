@@ -21,6 +21,8 @@ public class AdminDAO {
     private static final String READ_ADMIN_QUERY = "SELECT * from admins where id = ?;";
     private static final String UPDATE_ADMIN_QUERY = "UPDATE admins SET first_name = ? , last_name = ?, email = ?, password = ?, superadmin = ?, enable = ? WHERE	id = ?;";
     private static final String CHECK_EMAIL = "SELECT password FROM admins where email = ?;";
+    private static final String CHECK_ID = "SELECT id FROM admins where email = ?;";
+    private static final String GET_NAME_QUERY = "SELECT first_name FROM admins where email = ?;";
     private static final String SALT = "$2a$06$bjyVhqrhzzg592VySdTcuu";
 
 
@@ -178,7 +180,7 @@ public class AdminDAO {
                 if (!resultSet.next()) {
                     return false;
                 }
-                if (!resultSet.getString("password").equals(hashPassword(password)) ) {
+                if (!resultSet.getString("password").equals(hashPassword(password))) {
                     System.out.println(hashPassword(password));
                     System.out.println(resultSet.getString("password"));
                     return false;
@@ -187,7 +189,40 @@ public class AdminDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
-            return true;
+        return true;
+    }
+
+    public static int checkId(String email) {
+        int id = 0;
+        try (Connection connection = DbUtil.getConnection();
+             PreparedStatement statement = connection.prepareStatement(CHECK_ID)
+        ) {
+            statement.setString(1, email);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    id += resultSet.getInt("id");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return id;
+    }
+    public static String getName(String email) {
+        String name = "";
+        try (Connection connection = DbUtil.getConnection();
+             PreparedStatement statement = connection.prepareStatement(GET_NAME_QUERY)
+        ) {
+            statement.setString(1, email);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    name += resultSet.getString("first_name");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return name;
     }
 
 }

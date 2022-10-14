@@ -31,7 +31,8 @@ public class Login extends HttpServlet {
 
         if (AdminDAO.checkLogin(email, password) == true) {
             request.getSession().setAttribute("email", "logged");
-            response.sendRedirect("/");
+            request.getSession().setAttribute("email", email);
+            response.sendRedirect("/app/dashboard");
         } else {
             response.sendRedirect("/login?log=bad");
         }

@@ -149,7 +149,7 @@ public class RecipeDao {
             statement.setInt(1, adminId);
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
-                    count = resultSet.getInt("count(*)");
+                    count =+ resultSet.getInt("count(*)");
                 }
             }
         } catch (Exception e) {
