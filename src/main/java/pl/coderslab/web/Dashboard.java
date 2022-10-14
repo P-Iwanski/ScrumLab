@@ -27,12 +27,6 @@ public class Dashboard extends HttpServlet {
         int numberOfRecipes = RecipeDao.numberOfRecipe(id);
         String nameOfLastPlan = PlanDao.nameLastAddedPlan(id);
 
-//        List<RecipePlanDays> arrayOfLastPlan = PlanDao.lastAddedPlan(1);
-//        String name = AdminDAO.getName("arkadiusz.jozwiak@coderslab.pl");
-//        int numberOfPlans = PlanDao.numberOfPlans(1);
-//        int numberOfRecipes = RecipeDao.numberOfRecipe(1);
-//        String nameOfLastPlan = PlanDao.nameLastAddedPlan(1);
-
         request.setAttribute("arrayOfLastPlan", arrayOfLastPlan);
         request.setAttribute("name", name);
         request.setAttribute("numberOfPlans", numberOfPlans);
