@@ -111,6 +111,7 @@
                 <h2 class="dashboard-content-title">
                     <span>Ostatnio dodany plan:</span> ${nameOfLastPlan}
                 </h2>
+
                         <table class="table">
                             <thead>
                             <tr class="d-flex">
@@ -133,28 +134,30 @@
                             </c:if>
                             </c:forEach>
                         </table>
-                        <table class="table">
-                            <thead>
-                            <tr class="d-flex">
-                                <th class="col-2">Wtorek</th>
-                                <th class="col-8"></th>
-                                <th class="col-2"></th>
-                            </tr>
-                            </thead>
-                            <c:forEach var="item" items="${arrayOfLastPlan}">
-                            <c:if test="${item.dayName.equals('wtorek')}">
+
+
+                <table class="table">
+                    <thead>
+                    <tr class="d-flex">
+                        <th class="col-2">Wtorek</th>
+                        <th class="col-8"></th>
+                        <th class="col-2"></th>
+                    </tr>
+                    </thead>
+                    <c:forEach var="item" items="${arrayOfLastPlan}">
+                        <c:if test="${item.dayName.equals('wtorek')}">
                             <tbody>
                             <tr class="d-flex">
                                 <td class="col-2">${item.mealName}</td>
                                 <td class="col-8">${item.recipeName}</td>
                                 <td class="col-2">
-                                    <button type="button" class="btn btn-primary rounded-0">Szczegóły</button>
+                                    <a href='<c:url value="/recipe/details?id=${item.recipeId}"/>' class="btn btn-primary rounded-0">Szczegóły</a>
                                 </td>
                             </tr>
                             </tbody>
-                            </c:if>
-                            </c:forEach>
-                        </table>
+                        </c:if>
+                    </c:forEach>
+                </table>
                         <table class="table">
                             <thead>
                             <tr class="d-flex">
@@ -178,16 +181,16 @@
                             </c:forEach>
                         </table>
 
-                <c:forEach var="item" items="${arrayOfLastPlan}">
-                    <c:if test="${item.dayName.equals('czwartek')}">
-                        <table class="table">
-                            <thead>
-                            <tr class="d-flex">
-                                <th class="col-2">Czwartek</th>
-                                <th class="col-8"></th>
-                                <th class="col-2"></th>
-                            </tr>
-                            </thead>
+                <table class="table">
+                    <thead>
+                    <tr class="d-flex">
+                        <th class="col-2">Czwartek</th>
+                        <th class="col-8"></th>
+                        <th class="col-2"></th>
+                    </tr>
+                    </thead>
+                    <c:forEach var="item" items="${arrayOfLastPlan}">
+                        <c:if test="${item.dayName.equals('czwartek')}">
                             <tbody>
                             <tr class="d-flex">
                                 <td class="col-2">${item.mealName}</td>
@@ -197,19 +200,19 @@
                                 </td>
                             </tr>
                             </tbody>
-                        </table>
-                    </c:if>
-                </c:forEach>
-                <c:forEach var="item" items="${arrayOfLastPlan}">
-                    <c:if test="${item.dayName.equals('piątek')}">
-                        <table class="table">
-                            <thead>
-                            <tr class="d-flex">
-                                <th class="col-2">Piątek</th>
-                                <th class="col-8"></th>
-                                <th class="col-2"></th>
-                            </tr>
-                            </thead>
+                        </c:if>
+                    </c:forEach>
+                </table>
+                <table class="table">
+                    <thead>
+                    <tr class="d-flex">
+                        <th class="col-2">Piątek</th>
+                        <th class="col-8"></th>
+                        <th class="col-2"></th>
+                    </tr>
+                    </thead>
+                    <c:forEach var="item" items="${arrayOfLastPlan}">
+                        <c:if test="${item.dayName.equals('piątek')}">
                             <tbody>
                             <tr class="d-flex">
                                 <td class="col-2">${item.mealName}</td>
@@ -219,19 +222,19 @@
                                 </td>
                             </tr>
                             </tbody>
-                        </table>
-                    </c:if>
-                </c:forEach>
-                <c:forEach var="item" items="${arrayOfLastPlan}">
-                    <c:if test="${item.dayName.equals('sobota')}">
-                        <table class="table">
-                            <thead>
-                            <tr class="d-flex">
-                                <th class="col-2">Sobota</th>
-                                <th class="col-8"></th>
-                                <th class="col-2"></th>
-                            </tr>
-                            </thead>
+                        </c:if>
+                    </c:forEach>
+                </table>
+                <table class="table">
+                    <thead>
+                    <tr class="d-flex">
+                        <th class="col-2">Sobota</th>
+                        <th class="col-8"></th>
+                        <th class="col-2"></th>
+                    </tr>
+                    </thead>
+                    <c:forEach var="item" items="${arrayOfLastPlan}">
+                        <c:if test="${item.dayName.equals('sobota')}">
                             <tbody>
                             <tr class="d-flex">
                                 <td class="col-2">${item.mealName}</td>
@@ -241,19 +244,19 @@
                                 </td>
                             </tr>
                             </tbody>
-                        </table>
-                    </c:if>
-                </c:forEach>
-                <c:forEach var="item" items="${arrayOfLastPlan}">
-                    <c:if test="${item.dayName.equals('niedziela')}">
-                        <table class="table">
-                            <thead>
-                            <tr class="d-flex">
-                                <th class="col-2">Niedziela</th>
-                                <th class="col-8"></th>
-                                <th class="col-2"></th>
-                            </tr>
-                            </thead>
+                        </c:if>
+                    </c:forEach>
+                </table>
+                <table class="table">
+                    <thead>
+                    <tr class="d-flex">
+                        <th class="col-2">Niedziela</th>
+                        <th class="col-8"></th>
+                        <th class="col-2"></th>
+                    </tr>
+                    </thead>
+                    <c:forEach var="item" items="${arrayOfLastPlan}">
+                        <c:if test="${item.dayName.equals('niedziela')}">
                             <tbody>
                             <tr class="d-flex">
                                 <td class="col-2">${item.mealName}</td>
@@ -263,9 +266,9 @@
                                 </td>
                             </tr>
                             </tbody>
-                        </table>
-                    </c:if>
-                </c:forEach>
+                        </c:if>
+                    </c:forEach>
+                </table>
             </div>
         </div>
     </div>
