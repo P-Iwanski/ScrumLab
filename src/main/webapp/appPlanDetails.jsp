@@ -59,7 +59,7 @@
                             <td class="col-2">${recipe.mealName}</td>
                             <td class="col-7">${recipe.recipeName}</td>
                             <td class="col-1 center">
-                                <a href="#" class="btn btn-danger rounded-0 text-light m-1">Usuń</a>
+                                <a href='<c:url value="/app/plan/details/delete?id=${recipe.recipeId}"/>' class="btn btn-danger rounded-0 text-light m-1" onclick="return confirm('Czy na pewno chcesz usunąć przepis z planu?')">Usuń</a>
                             </td>
                             <td class="col-2 center">
                                 <a href='<c:url value="/app/recipe/details?id=${recipe.recipeId}"/>'
@@ -88,7 +88,7 @@
                             <td class="col-2">${recipe.mealName}</td>
                             <td class="col-7">${recipe.recipeName}</td>
                             <td class="col-1 center">
-                                <a href="#" class="btn btn-danger rounded-0 text-light m-1">Usuń</a>
+                                <a href='<c:url value="/app/plan/details/delete?id=${recipe.recipeId}"/>' class="btn btn-danger rounded-0 text-light m-1" onclick="return confirm('Czy na pewno chcesz usunąć przepis z planu?')">Usuń</a>
                             </td>
                             <td class="col-2 center">
                                 <a href='<c:url value="/app/recipe/details?id=${recipe.recipeId}"/>'
@@ -117,7 +117,7 @@
                             <td class="col-2">${recipe.mealName}</td>
                             <td class="col-7">${recipe.recipeName}</td>
                             <td class="col-1 center">
-                                <a href="#" class="btn btn-danger rounded-0 text-light m-1">Usuń</a>
+                                <a href='<c:url value="/app/plan/details/delete?id=${recipe.recipeId}"/>' class="btn btn-danger rounded-0 text-light m-1" onclick="return confirm('Czy na pewno chcesz usunąć przepis z planu?')">Usuń</a>
                             </td>
                             <td class="col-2 center">
                                 <a href='<c:url value="/app/recipe/details?id=${recipe.recipeId}"/>'
@@ -146,7 +146,7 @@
                             <td class="col-2">${recipe.mealName}</td>
                             <td class="col-7">${recipe.recipeName}</td>
                             <td class="col-1 center">
-                                <a href="#" class="btn btn-danger rounded-0 text-light m-1">Usuń</a>
+                                <a href='<c:url value="/app/plan/details/delete?id=${recipe.recipeId}"/>' class="btn btn-danger rounded-0 text-light m-1" onclick="return confirm('Czy na pewno chcesz usunąć przepis z planu?')">Usuń</a>
                             </td>
                             <td class="col-2 center">
                                 <a href='<c:url value="/app/recipe/details?id=${recipe.recipeId}"/>'
@@ -175,7 +175,7 @@
                             <td class="col-2">${recipe.mealName}</td>
                             <td class="col-7">${recipe.recipeName}</td>
                             <td class="col-1 center">
-                                <a href="#" class="btn btn-danger rounded-0 text-light m-1">Usuń</a>
+                                <a href='<c:url value="/app/plan/details/delete?id=${recipe.recipeId}"/>' class="btn btn-danger rounded-0 text-light m-1" onclick="return confirm('Czy na pewno chcesz usunąć przepis z planu?')">Usuń</a>
                             </td>
                             <td class="col-2 center">
                                 <a href='<c:url value="/app/recipe/details?id=${recipe.recipeId}"/>'
@@ -204,7 +204,7 @@
                             <td class="col-2">${recipe.mealName}</td>
                             <td class="col-7">${recipe.recipeName}</td>
                             <td class="col-1 center">
-                                <a href="#" class="btn btn-danger rounded-0 text-light m-1">Usuń</a>
+                                <a href='<c:url value="/app/plan/details/delete?id=${recipe.recipeId}"/>' class="btn btn-danger rounded-0 text-light m-1" onclick="return confirm('Czy na pewno chcesz usunąć przepis z planu?')">Usuń</a>
                             </td>
                             <td class="col-2 center">
                                 <a href='<c:url value="/app/recipe/details?id=${recipe.recipeId}"/>'
@@ -233,7 +233,7 @@
                             <td class="col-2">${recipe.mealName}</td>
                             <td class="col-7">${recipe.recipeName}</td>
                             <td class="col-1 center">
-                                <a href="#" class="btn btn-danger rounded-0 text-light m-1">Usuń</a>
+                                <a href='<c:url value="/app/plan/details/delete?id=${recipe.recipeId}"/>' class="btn btn-danger rounded-0 text-light m-1" onclick="return confirm('Czy na pewno chcesz usunąć przepis z planu?')">Usuń</a>
                             </td>
                             <td class="col-2 center">
                                 <a href='<c:url value="/app/recipe/details?id=${recipe.recipeId}"/>'
