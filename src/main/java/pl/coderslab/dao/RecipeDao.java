@@ -99,7 +99,7 @@ public class RecipeDao {
 
     }
 
-    public void delete(Integer recipeId) {
+    public static void delete(Integer recipeId) {
         try (Connection connection = DbUtil.getConnection();
              PreparedStatement statement = connection.prepareStatement(DELETE_RECIPE_QUERY)) {
             statement.setInt(1, recipeId);

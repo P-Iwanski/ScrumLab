@@ -290,6 +290,18 @@ margin: 0 auto !important;
   color: var(--link-color);
 }
 
+#button1{
+  width: 300px;
+  height: 40px;
+}
+#button2{
+  width: 300px;
+  height: 40px;
+}
+#container{
+  text-align: center;
+}
+
 /*------------------------------*/
 /*---- Recipes section ----*/
 /*------------------------------*/
