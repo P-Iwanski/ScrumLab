@@ -23,7 +23,7 @@ public class ForLogOnly implements Filter {
         HttpServletResponse httpResponse = (HttpServletResponse) response;
         String isLog = (String) httpRequest.getSession().getAttribute("email");
         if (isLog == null || isLog.isBlank()) {
-            httpResponse.sendRedirect(httpRequest.getContextPath() + "/login.html");
+            httpResponse.sendRedirect(httpRequest.getContextPath() + "/login");
             return;
         }
         chain.doFilter(request, response);
