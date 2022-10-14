@@ -22,7 +22,7 @@ public class PlanDao {
     private static final String SELECT_NAME_OF_PLANS = "SELECT name FROM plan WHERE admin_id=? ORDER BY id DESC LIMIT 1;";
     private static final String FIND_LAST_ADDED_PLAN_QUERY ="""
     SELECT day_name.name as day_name, meal_name,  recipe.name as recipe_name, recipe.id as recipe_id,
-    recipe.descritpion as recipe_desc
+    recipe.description as recipe_desc
     FROM recipe_plan
     JOIN day_name on day_name.id=day_name_id
     JOIN recipe on recipe.id=recipe_id 

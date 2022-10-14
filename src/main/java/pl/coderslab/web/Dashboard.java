@@ -30,6 +30,7 @@ public class Dashboard extends HttpServlet {
 
 
         request.setAttribute("arrayOfLastPlan", arrayOfLastPlan);
+        System.out.println(arrayOfLastPlan);
         request.setAttribute("name", name);
         request.setAttribute("numberOfPlans", numberOfPlans);
         request.setAttribute("numberOfRecipes", numberOfRecipes);
