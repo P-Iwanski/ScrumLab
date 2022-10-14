@@ -10,7 +10,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
-@WebServlet(name = "AppEditSchedule", value = "/app/edit/schedule")
+@WebServlet(name = "AppEditSchedule", value = "/app/plan/edit")
 public class AppEditSchedule extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

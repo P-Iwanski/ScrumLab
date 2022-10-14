@@ -52,7 +52,7 @@ public class RecipeDao {
         return recipe;
     }
 
-    public Recipe read(Integer recipeId) {
+    public static Recipe read(Integer recipeId) {
         Recipe recipe = new Recipe();
         try (Connection connection = DbUtil.getConnection();
              PreparedStatement statement = connection.prepareStatement(READ_RECIPE_QUERY)
@@ -78,10 +78,10 @@ public class RecipeDao {
 
     }
 
-    public void update(Recipe recipe) {
+    public static void update(Recipe recipe) {
         try (Connection connection = DbUtil.getConnection();
              PreparedStatement statement = connection.prepareStatement(UPDATE_RECIPE_QUERY)) {
-            statement.setInt(8, recipe.getId());
+            statement.setInt(9, recipe.getId());
             statement.setString(1, recipe.getName());
             statement.setString(2, recipe.getIngredients());
             statement.setString(3, recipe.getDescription());
