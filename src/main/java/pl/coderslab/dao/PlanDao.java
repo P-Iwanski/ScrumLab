@@ -18,14 +18,15 @@ public class PlanDao {
     private static final String UPDATE_PLAN_QUERY = "UPDATE plan SET name = ? , description = ?, created = ?, admin_id = ? WHERE id = ?;";
     private static final String DELETE_PLAN_QUERY = "DELETE FROM plan WHERE id = ?;";
     private static final String FIND_ALL_PLANS_QUERY = "SELECT * FROM plan;";
-    private static final String SELECT_NUMBERS_OF_PLANS = "SELECT count(*) FROM plan WHERE id=?;";
+    private static final String SELECT_NUMBERS_OF_PLANS = "SELECT count(*) FROM plan WHERE admin_id=?;";
+    private static final String SELECT_NAME_OF_PLANS = "SELECT name FROM plan WHERE admin_id=? ORDER BY id DESC LIMIT 1;";
     private static final String FIND_LAST_ADDED_PLAN_QUERY ="""
-    SELECT day_name.name as day_name, meal_name,  recipe.name as recipe_name
+    SELECT day_name.name as day_name, meal_name,  recipe.name as recipe_name, recipe.id as recipe_id
     FROM recipe_plan
     JOIN day_name on day_name.id=day_name_id
     JOIN recipe on recipe.id=recipe_id 
     WHERE
-    recipe_plan.plan_id =  (SELECT MAX(id) from plan WHERE admin_id = ?)
+    recipe_plan.plan_id = (SELECT MAX(id) from plan WHERE admin_id = ?)
     ORDER by day_name.display_order, recipe_plan.display_order;
     """;
 
@@ -139,7 +140,7 @@ public class PlanDao {
             statement.setInt(1, adminId);
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
-                    count = resultSet.getInt("count(*)");
+                    count += resultSet.getInt("count(*)");
                 }
             }
         } catch (Exception e) {
@@ -150,7 +151,7 @@ public class PlanDao {
     }
 
     public static List<RecipePlanDays> lastAddedPlan(int adminId) {
-        List<RecipePlanDays> rpdArray = new ArrayList<RecipePlanDays>();
+        List<RecipePlanDays> rpdArray = new ArrayList<>();
         try (Connection connection = DbUtil.getConnection();
              PreparedStatement statement = connection.prepareStatement(FIND_LAST_ADDED_PLAN_QUERY)
         ) {
@@ -161,7 +162,7 @@ public class PlanDao {
                     rpd.setMealName(resultSet.getString("meal_name"));
                     rpd.setDayName(resultSet.getString("day_name"));
                     rpd.setRecipeName(resultSet.getString("recipe_name"));
-                    //rpd.setPlanName(resultSet.getString("plan_name"));
+                    rpd.setRecipeId(resultSet.getInt("recipe_id"));
                     rpdArray.add(rpd);
 
                 }
@@ -172,4 +173,22 @@ public class PlanDao {
         return rpdArray;
 
     }
+    public static String nameLastAddedPlan(int adminId) {
+        String nameLastPlan = "";
+        try (Connection connection = DbUtil.getConnection();
+             PreparedStatement statement = connection.prepareStatement(SELECT_NAME_OF_PLANS)
+        ) {
+            statement.setInt(1, adminId);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    nameLastPlan = resultSet.getString("name");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return nameLastPlan;
+
+    }
+
 }
