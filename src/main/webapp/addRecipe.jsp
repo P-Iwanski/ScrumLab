@@ -5,50 +5,11 @@
 
 <head>
   <%@ include file="/fragments/meta.jsp" %>
-  <title>Contact</title>
-  <%@ include file="/fragments/headerFixed.jsp" %>
+  <title>Plans</title>
 </head>
 
-<section class="dashboard-section">
-  <div class="row dashboard-nowrap">
-    <ul class="nav flex-column long-bg">
-      <li class="nav-item">
-        <a class="nav-link" href="">
-          <span>Pulpit</span>
-          <i class="fas fa-angle-right"></i>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/app/recipe/list">
-          <span>Przepisy</span>
-          <i class="fas fa-angle-right"></i>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/app/plan/list">
-          <span>Plany</span>
-          <i class="fas fa-angle-right"></i>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="">
-          <span>Edytuj dane</span>
-          <i class="fas fa-angle-right"></i>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="">
-          <span>Zmień hasło</span>
-          <i class="fas fa-angle-right"></i>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="">
-          <span>Użytkownicy</span>
-          <i class="fas fa-angle-right"></i>
-        </a>
-      </li>
-    </ul>
+<body>
+<%@ include file="/fragments/appMenuAndHeader.jsp" %>
 
     <div class="m-4 p-3 width-medium text-color-darker">
       <div class="dashboard-content border-dashed p-3 m-4 view-height">
