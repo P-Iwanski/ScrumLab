@@ -278,6 +278,12 @@ margin: 0 auto !important;
 
 .footer-section{
   background: var(--background-color);
+  height: 50px;
+  margin-top: -50px;
+  position: fixed;
+  bottom:0;
+  width: 100%;
+  z-index: 1;
 }
 
 .footer-text-color {

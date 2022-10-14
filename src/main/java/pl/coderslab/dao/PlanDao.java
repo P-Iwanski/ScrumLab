@@ -21,7 +21,8 @@ public class PlanDao {
     private static final String SELECT_NUMBERS_OF_PLANS = "SELECT count(*) FROM plan WHERE admin_id=?;";
     private static final String SELECT_NAME_OF_PLANS = "SELECT name FROM plan WHERE admin_id=? ORDER BY id DESC LIMIT 1;";
     private static final String FIND_LAST_ADDED_PLAN_QUERY ="""
-    SELECT day_name.name as day_name, meal_name,  recipe.name as recipe_name, recipe.id as recipe_id
+    SELECT day_name.name as day_name, meal_name,  recipe.name as recipe_name, recipe.id as recipe_id,
+    recipe.descritpion as recipe_desc
     FROM recipe_plan
     JOIN day_name on day_name.id=day_name_id
     JOIN recipe on recipe.id=recipe_id 
@@ -58,7 +59,7 @@ public class PlanDao {
         return plan;
     }
 
-    public Plan read(Integer planId) {
+    public static Plan read(Integer planId) {
         Plan plan = new Plan();
         try (Connection connection = DbUtil.getConnection();
              PreparedStatement statement = connection.prepareStatement(READ_PLAN_QUERY)
@@ -162,6 +163,7 @@ public class PlanDao {
                     rpd.setMealName(resultSet.getString("meal_name"));
                     rpd.setDayName(resultSet.getString("day_name"));
                     rpd.setRecipeName(resultSet.getString("recipe_name"));
+                    rpd.setRecipeName(resultSet.getString("recipe_desc"));
                     rpd.setRecipeId(resultSet.getInt("recipe_id"));
                     rpdArray.add(rpd);
 

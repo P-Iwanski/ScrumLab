@@ -14,7 +14,7 @@ import java.util.List;
 
 public class RecipePlanDao {
 
-    private static final String FIND_ALL_BY_PLAN_ID = "SELECT day_name.name as day_name, meal_name, recipe.name as recipe_name, recipe.id as recipe_id\n" +
+    private static final String FIND_ALL_BY_PLAN_ID = "SELECT day_name.name as day_name, meal_name, recipe.name as recipe_name, recipe.id as recipe_id, recipe.description as recipe_desc\n" +
             "FROM `recipe_plan`\n" +
             "         JOIN day_name on day_name.id=day_name_id\n" +
             "         JOIN recipe on recipe.id=recipe_id WHERE plan_id = ?\n" +
@@ -36,6 +36,7 @@ public class RecipePlanDao {
                     recipePlan.setMealName(resultSet.getString("meal_name"));
                     recipePlan.setDayName(resultSet.getString("day_name"));
                     recipePlan.setRecipeName(resultSet.getString("recipe_name"));
+                    recipePlan.setRecipeName(resultSet.getString("recipe_desc"));
                     recipePlan.setRecipeId(resultSet.getInt("recipe_id"));
                     recipePlanList.add(recipePlan);
 
