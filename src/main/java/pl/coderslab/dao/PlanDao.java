@@ -81,7 +81,7 @@ public class PlanDao {
 
     }
 
-    public void update(Plan plan) {
+    public static void update(Plan plan) {
         try (Connection connection = DbUtil.getConnection();
              PreparedStatement statement = connection.prepareStatement(UPDATE_PLAN_QUERY)) {
             statement.setInt(5, plan.getId());
