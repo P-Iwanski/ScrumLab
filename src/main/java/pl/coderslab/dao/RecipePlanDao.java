@@ -1,5 +1,6 @@
 package pl.coderslab.dao;
 
+import pl.coderslab.exception.NotFoundException;
 import pl.coderslab.model.RecipePlan;
 import pl.coderslab.model.RecipePlan;
 import pl.coderslab.model.RecipePlan;
@@ -23,6 +24,7 @@ public class RecipePlanDao {
     private static final String GET_RECIPE_ID = "SELECT id FROM recipe WHERE name = ?";
     private static final String GET_DAY_ID = "SELECT id FROM day_name WHERE name = ?";
     private static final String CREATE_RECIPE_PLAN = "INSERT INTO recipe_plan (recipe_id, meal_name, display_order, day_name_id, plan_id) VALUES (?, ?, ?, ?, ?)";
+    private static final String DELETE_RECIPE_PLAN = "DELETE FROM recipe_plan WHERE recipe_id = ?;";
 
     public static List<RecipePlan> findById(int planId) {
         List<RecipePlan> recipePlanList = new ArrayList<>();
@@ -126,5 +128,20 @@ public class RecipePlanDao {
             e.printStackTrace();
         }
         return dayId;
+    }
+
+    public static void delete(Integer recipeId) {
+        try (Connection connection = DbUtil.getConnection();
+             PreparedStatement statement = connection.prepareStatement(DELETE_RECIPE_PLAN)) {
+            statement.setInt(1, recipeId);
+            statement.executeUpdate();
+
+            boolean deleted = statement.execute();
+            if (!deleted) {
+                throw new NotFoundException("Recipe not found");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
