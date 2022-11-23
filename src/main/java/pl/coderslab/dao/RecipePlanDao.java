@@ -24,7 +24,7 @@ public class RecipePlanDao {
     private static final String GET_RECIPE_ID = "SELECT id FROM recipe WHERE name = ?";
     private static final String GET_DAY_ID = "SELECT id FROM day_name WHERE name = ?";
     private static final String CREATE_RECIPE_PLAN = "INSERT INTO recipe_plan (recipe_id, meal_name, display_order, day_name_id, plan_id) VALUES (?, ?, ?, ?, ?)";
-    private static final String DELETE_RECIPE_PLAN = "DELETE FROM recipe_plan WHERE recipe_id = ?;";
+    private static final String DELETE_RECIPE_PLAN = "DELETE FROM recipe_plan WHERE id = ?;";
 
     public static List<RecipePlan> findById(int planId) {
         List<RecipePlan> recipePlanList = new ArrayList<>();
